@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Pentaclock</title>
+    <link rel="stylesheet" href="pent-clock.css">
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Unbounded">
+  </head>
+  <body>
+
+    <div class="page-wrapper">
+      <svg class="analogue green" viewBox="-50 -50 100 100">
+
+
+        <!-- BACKGROUND -->
+        <g clip-path="url(#back-clip)">
+          <circle class="day-back" cx="0" cy="0" r="40" />
+          <path class="set-back"
+              fill="url(#back-gradient)"
+              d="M -38.0423 -12.3607 Q 0 0 38.0423 -12.3607 
+                  H 50 V 50 H -50 V -18 Z" />
+        </g>
+
+
+        <!-- STRUCTURE -->
+        <circle class="main-disc" cx="0" cy="0" r="49" />
+        <circle class="inner-disc" cx="0" cy="0" r="40" />
+
+
+
+        <g id="min-gg">
+          <g id="min-group" class="min-tick" clip-path="url(#min-tick-clip)">
+            <line x1="0" y1="-50" x2="0" y2="0" transform="rotate(2.88 0 0)" />
+            <line x1="0" y1="-50" x2="0" y2="0" transform="rotate(5.76 0 0)" />
+            <line x1="0" y1="-50" x2="0" y2="0" transform="rotate(8.64 0 0)" />
+            <line x1="0" y1="-50" x2="0" y2="0" transform="rotate(11.52 0 0)" />
+            <line x1="0" y1="-50" x2="0" y2="0" transform="rotate(14.4 0 0)" />
+          </g>
+          <use xlink:href="#min-group" transform="rotate(14.4 0 0)"/>
+          <use xlink:href="#min-group" transform="rotate(28.8 0 0)"/>
+          <use xlink:href="#min-group" transform="rotate(43.2 0 0)"/>
+          <use xlink:href="#min-group" transform="rotate(57.6 0 0)"/>
+        </g>
+        <use xlink:href="#min-gg" transform="rotate(72 0 0)"/>
+        <use xlink:href="#min-gg" transform="rotate(144 0 0)"/>
+        <use xlink:href="#min-gg" transform="rotate(216 0 0)"/>
+        <use xlink:href="#min-gg" transform="rotate(288 0 0)"/>
+
+
+        <g id="mid-tick" class="mid-tick" clip-path="url(#mid-tick-clip)">
+          <line x1="0" y1="-40" x2="0" y2="-35" transform="rotate(14.4 0 0)" />
+          <line x1="0" y1="-40" x2="0" y2="-35" transform="rotate(28.8 0 0)" />
+          <line x1="0" y1="-40" x2="0" y2="-35" transform="rotate(43.2 0 0)" />
+          <line x1="0" y1="-40" x2="0" y2="-35" transform="rotate(57.6 0 0)" />
+          <line x1="0" y1="-40" x2="0" y2="-35" transform="rotate(72 0 0)" />
+        </g>
+        <use xlink:href="#mid-tick" transform="rotate(72 0 0)"/>
+        <use xlink:href="#mid-tick" transform="rotate(144 0 0)"/>
+        <use xlink:href="#mid-tick" transform="rotate(216 0 0)"/>
+        <use xlink:href="#mid-tick" transform="rotate(288 0 0)"/>
+
+
+        <g class="main-tick">
+          <line x1="0" y1="-40" x2="0" y2="-35" />
+          <line x1="0" y1="-40" x2="0" y2="-35" transform="rotate(72 0 0)" />
+          <line x1="0" y1="-40" x2="0" y2="-35" transform="rotate(144 0 0)" />
+          <line x1="0" y1="-40" x2="0" y2="-35" transform="rotate(216 0 0)" />
+          <line x1="0" y1="-40" x2="0" y2="-35" transform="rotate(288 0 0)" />
+        </g>
+
+
+
+
+
+        <!-- DECORATION, nums and dots -->
+        <g class="main-num">
+          <text class="num0" x="0" y="-43" transform="rotate( 36 0 0)">P</text>
+          <text class="num1" x="0" y="-43" transform="rotate(108 0 0)">Æ</text>
+          <text class="num2" x="0" y="-43" transform="rotate(180 0 0)">R</text>
+          <text class="num3" x="0" y="-43" transform="rotate(252 0 0)">D</text>
+          <text class="num4" x="0" y="-43" transform="rotate(324 0 0)">A</text>
+        </g>
+
+        <g class="deco-line">
+          <path id="main-line" fill="url('#line-gradient')"  
+            transform="rotate( 36 0 0)" d="M
+          26.4503 -36.4058 A 45 45 0 0 0 -26.4503 -36.4058 L -25.8626 -35.5967 A
+          44 44 0 0 1 25.8626 -35.5967 z" />
+          <use xlink:href="#main-line" transform="rotate(72 0 0)"/>
+          <use xlink:href="#main-line" transform="rotate(144 0 0)"/>
+          <use xlink:href="#main-line" transform="rotate(216 0 0)"/>
+          <use xlink:href="#main-line" transform="rotate(288 0 0)"/>
+        </g>
+
+
+
+        <path class="sol" transform="translate(0 -44) scale(.5 .5)"
+            d='M0-2A1 1 0 000 2 1 1 0 000-2M0-3V-5M0 3V5M3 0H5M-3 0H-5M2.1213-2.1213
+            3.5355-3.5355M-2.1213 2.1213-3.5355 3.5355M2.1213 2.1213 3.5355
+            3.5355M-2.1213-2.1213-3.5355-3.5355'/>
+
+
+        <!-- ARMS -->
+        <g class="arm">
+          <path class="hour-hand" d='M 1 -1 v -26 a 1 1 0 0 0 -2 0 v 26 a 1 1 0
+          0 0 2 0'/>
+          <path class="minute-hand" d='M 1 -1 v -38 a 1 1 0 0 0 -2 0 v 38 a 1 1
+          0 0 0 2 0'/>
+          <path class="second-hand" d='M 0.5 0 v -44 a 0.5 0.5 0 0 0 -1 0 v
+          44'/>
+        </g>
+        <circle class="clasp-ring" cx="0" cy="0" r="3" />
+        <circle class="clasp" cx="0" cy="0" r="2" />
+
+
+        <defs>
+
+          <linearGradient id="line-gradient">
+            <stop offset="0%" stop-color="#0000" />
+            <stop offset="40%" stop-color="#88A" />
+            <stop offset="41%" stop-color="#0000" />
+            <stop offset="59%" stop-color="#0000" />
+            <stop offset="60%" stop-color="#88A" />
+            <stop offset="100%" stop-color="#0000" />
+          </linearGradient>
+
+          <radialGradient id="back-gradient" cx="0.5" cy=".8" r=".7">
+            <stop offset="0%" stop-color="#001" />
+            <stop offset="30%" stop-color="#0008" />
+            <stop offset="50%" stop-color="#F00D" />
+            <stop offset="60%" stop-color="#F80" />
+            <stop offset="70%" stop-color="#FF08" />
+            <stop offset="100%" stop-color="#0000" />
+          </radialGradient>
+
+          <clipPath id="back-clip">
+            <circle cx="0" cy="0" r="40" />
+          </clipPath>
+
+          <clipPath id="main-tick-clip">
+            <path d='M -40 0 A 25 25 90 1 1 40 0 A 25 25 90 1 1 -40 0 z M -35 0
+            A 25 25 90 1 1 35 0 A 25 25 90 1 1 -35 0 z' clip-rule='evenodd'/>             
+          </clipPath>
+
+          <clipPath id="mid-tick-clip">
+            <path d='M -40 0 A 25 25 90 1 1 40 0 A 25 25 90 1 1 -40 0 z M -36 0
+            A 25 25 90 1 1 36 0 A 25 25 90 1 1 -36 0 z' clip-rule='evenodd'/>             
+          </clipPath>
+
+          <clipPath id="min-tick-clip">
+            <path d='M -40 0 A 25 25 90 1 1 40 0 A 25 25 90 1 1 -40 0 z M -38 0
+            A 25 25 90 1 1 38 0 A 25 25 90 1 1 -38 0 z' clip-rule='evenodd'/>             
+          </clipPath>
+        </defs>
+      </svg>
+
+
+
+
+
+
+
+      <div class="readout">
+        <div>0:1 of day:</div>  <div class="decOfDay v"></div>
+        <div>Percent of day:</div> <div class="percentOfDay v"></div>
+        <div>Pentour:</div> <div class="pentour v"></div>
+        <div>Pentite:</div> <div class="pentite v"></div>
+        <div>Pentec:</div> <div class="pentec v"></div>
+        <div>Pental Time:</div> <div class="digital v"></div>
+      </div>
+
+
+
+
+
+
+
+
+      
+      <svg class="analogue blue" viewBox="-50 -50 100 100">
+
+        <!-- STRUCTURE -->
+        <circle class="main-disc" cx="0" cy="0" r="49" />
+        <circle class="inner-disc" cx="0" cy="0" r="40" />
+
+        <!-- Tiny Ticks -->
+        <!-- <g id="b-min-gg">
+          <g id="b-min-group" class="min-tick" clip-path="url(#min-tick-clip)">
+            <line x1="0" y1="-50" x2="0" y2="50" transform="rotate(6 0 0)" />
+            <line x1="0" y1="-50" x2="0" y2="50" transform="rotate(12 0 0)" />
+            <line x1="0" y1="-50" x2="0" y2="50" transform="rotate(18 0 0)" />
+            <line x1="0" y1="-50" x2="0" y2="50" transform="rotate(24 0 0)" />
+          </g>
+          <use xlink:href="#b-min-group" transform="rotate(30 0 0)"/>
+          <use xlink:href="#b-min-group" transform="rotate(60 0 0)"/>
+          <use xlink:href="#b-min-group" transform="rotate(90 0 0)"/>
+          <use xlink:href="#b-min-group" transform="rotate(120 0 0)"/>
+          <use xlink:href="#b-min-group" transform="rotate(150 0 0)"/>
+        </g> -->
+
+        <!-- Medium Ticks -->
+        <g class="mid-tick" clip-path="url(#mid-tick-clip)">
+          <line x1="0" y1="-40" x2="0" y2="40" transform="rotate(30 0 0)" />
+          <line x1="0" y1="-40" x2="0" y2="40" transform="rotate(60 0 0)" />
+          <line x1="0" y1="-40" x2="0" y2="40" transform="rotate(120 0 0)" />
+          <line x1="0" y1="-40" x2="0" y2="40" transform="rotate(150 0 0)" />
+        </g>
+
+        <!-- Main Ticks -->
+        <!-- <g class="main-tick">
+          <line x1="0" y1="-40" x2="0" y2="-35" />
+          <line x1="0" y1="-40" x2="0" y2="-35" transform="rotate(90 0 0)" />
+          <line x1="0" y1="-40" x2="0" y2="-35" transform="rotate(180 0 0)" />
+          <line x1="0" y1="-40" x2="0" y2="-35" transform="rotate(270 0 0)" />
+        </g> -->
+
+
+
+
+
+        <!-- DECORATION, nums and dots -->
+        <g class="main-num">
+          <text x="0" y="-43">12</text>
+          <text x="44" y="2">3</text>
+          <text x="0" y="46">6</text>
+          <text x="-44" y="2">9</text>
+        </g>
+
+
+
+
+
+        <!-- ARMS -->
+        <g class="arm">
+          <path class="hour-hand" d='M 1 -1 v -26 a 1 1 0 0 0 -2 0 v 26 a 1 1 0
+          0 0 2 0'/>
+          <path class="minute-hand" d='M 1 -1 v -38 a 1 1 0 0 0 -2 0 v 38 a 1 1
+          0 0 0 2 0'/>
+          <path class="second-hand" d='M 0.5 0 v -44 a 0.5 0.5 0 0 0 -1 0 v
+          44'/>
+        </g>
+        <circle class="clasp-ring" cx="0" cy="0" r="3" />
+        <circle class="clasp" cx="0" cy="0" r="2" />
+
+
+        <defs>
+
+          <linearGradient id="line-gradient">
+            <stop offset="0%" stop-color="#0000" />
+            <stop offset="40%" stop-color="#88A" />
+            <stop offset="41%" stop-color="#0000" />
+            <stop offset="59%" stop-color="#0000" />
+            <stop offset="60%" stop-color="#88A" />
+            <stop offset="100%" stop-color="#0000" />
+          </linearGradient>
+
+          <radialGradient id="back-gradient" cx="0.5" cy=".8" r=".7">
+            <stop offset="0%" stop-color="#001" />
+            <stop offset="30%" stop-color="#0008" />
+            <stop offset="50%" stop-color="#F00D" />
+            <stop offset="60%" stop-color="#F80" />
+            <stop offset="70%" stop-color="#FF08" />
+            <stop offset="100%" stop-color="#0000" />
+          </radialGradient>
+
+          <clipPath id="back-clip">
+            <circle cx="0" cy="0" r="40" />
+          </clipPath>
+
+          <clipPath id="main-tick-clip">
+            <path d='M -40 0 A 25 25 90 1 1 40 0 A 25 25 90 1 1 -40 0 z M -35 0
+            A 25 25 90 1 1 35 0 A 25 25 90 1 1 -35 0 z' clip-rule='evenodd'/>             
+          </clipPath>
+
+          <clipPath id="mid-tick-clip">
+            <path d='M -40 0 A 25 25 90 1 1 40 0 A 25 25 90 1 1 -40 0 z M -36 0
+            A 25 25 90 1 1 36 0 A 25 25 90 1 1 -36 0 z' clip-rule='evenodd'/>             
+          </clipPath>
+
+          <clipPath id="min-tick-clip">
+            <path d='M -40 0 A 25 25 90 1 1 40 0 A 25 25 90 1 1 -40 0 z M -38 0
+            A 25 25 90 1 1 38 0 A 25 25 90 1 1 -38 0 z' clip-rule='evenodd'/>             
+          </clipPath>
+        </defs>        
+        
+
+      </svg>
+
+
+
+
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"
+        integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g="
+        crossorigin="anonymous"></script>
+    <script src="pent-clock.js"></script>
+    <script src="controls.js"></script>
+  </body>
+</html>
